@@ -10,7 +10,8 @@ const {
   DATABASE_PASSWORD,
   DATABASE_HOST,
   DATABASE_PORT,
-  JWT_SECRET
+  JWT_SECRET,
+  ALLOWED_ORIGINS
 } = process.env;
 
 const config = {
@@ -23,7 +24,8 @@ const config = {
     HOST: DATABASE_HOST,
     PORT: DATABASE_PORT
   },
-  JWT: JWT_SECRET
+  JWT: JWT_SECRET,
+  ALLOWED_ORIGINS: ALLOWED_ORIGINS
 }
 
 export default config;
