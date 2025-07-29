@@ -78,19 +78,6 @@ Welcome to Coffee Shop, a modern full-stack web application that allows customer
 - Follow RESTful API conventions
 
 
-## 🧪 Testing
-
-```bash
-# Run backend tests
-cd backend
-yarn test
-
-# Run frontend tests
-cd frontend
-yarn test
-```
-
-
 ### Deployment Options
 - **Vercel/Netlify** - Frontend deployment
 - **Heroku/Railway** - Backend deployment
