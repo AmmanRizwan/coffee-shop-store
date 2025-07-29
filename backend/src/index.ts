@@ -2,6 +2,7 @@ import express, { Request, Response } from "express";
 import cors from "cors";
 import env from "./config/env";
 import { sequelize } from './config/db';
+import { comparePassword, hashPassword } from './utils/bcrypt';
 
 const port = env.PORT;
 
