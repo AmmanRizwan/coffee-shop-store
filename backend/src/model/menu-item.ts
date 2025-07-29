@@ -28,7 +28,7 @@ const MenuItem = sequelize.define(
   },
   {
     timestamps: true,
-    modelName: "menuitems"
+    tableName: "menuitems"
   }
 );
 

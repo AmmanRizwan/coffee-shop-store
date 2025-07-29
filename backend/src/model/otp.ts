@@ -1,35 +1,35 @@
 import { sequelize } from "../config/db";
 import { DataTypes } from "sequelize";
 
-const Inventory = sequelize.define(
-    "Inventory",
+const Otp = sequelize.define(
+    "Otp", 
     {
         id: {
             type: DataTypes.UUID,
             defaultValue: DataTypes.UUIDV4,
             primaryKey: true,
         },
-        name: {
+        otp: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
+        email: {
             type: DataTypes.STRING(100),
-            allowNull: false,
+            allowNull: true,
         },
-        quantity_stock: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-        },
-        unit: {
+        phone: {
             type: DataTypes.STRING(20),
+            allowNull: true,
+        },
+        expiresAt: {
+            type: DataTypes.DATE,
             allowNull: false,
         },
-        reorder_level: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-        }
     },
     {
         timestamps: true,
-        tableName: "inventory",
+        tableName: "otp",
     }
 )
 
-export { Inventory };
+export { Otp };
