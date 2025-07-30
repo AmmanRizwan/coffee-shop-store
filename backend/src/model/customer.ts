@@ -2,7 +2,7 @@ import { sequelize } from '../config/db';
 import { DataTypes } from 'sequelize';
 
 const Customer = sequelize.define(
-  "Customers",
+  'Customers',
   {
     id: {
       type: DataTypes.UUID,
@@ -35,12 +35,12 @@ const Customer = sequelize.define(
     },
     loyalty_points: {
       type: DataTypes.INTEGER,
-      defaultValue: 0
-    }
+      defaultValue: 0,
+    },
   },
   {
     timestamps: true,
-    tableName: "customers"
+    tableName: 'customers',
   }
 );
 

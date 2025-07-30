@@ -2,7 +2,7 @@ import { sequelize } from '../config/db';
 import { DataTypes } from 'sequelize';
 
 const Order = sequelize.define(
-  "Orders",
+  'Orders',
   {
     id: {
       type: DataTypes.UUID,
@@ -13,17 +13,17 @@ const Order = sequelize.define(
       type: DataTypes.UUID,
       allowNull: false,
       references: {
-        model: "customers",
-        key: "id",
-      }
+        model: 'customers',
+        key: 'id',
+      },
     },
     employee_id: {
       type: DataTypes.UUID,
       allowNull: false,
       references: {
-        model: "employees",
-        key: "id",
-      }
+        model: 'employees',
+        key: 'id',
+      },
     },
     order_data: {
       type: DataTypes.DATE,
@@ -33,11 +33,11 @@ const Order = sequelize.define(
     total_amount: {
       type: DataTypes.DECIMAL(7, 2),
       allowNull: false,
-    }
+    },
   },
   {
     timestamps: true,
-    tableName: "orders"
+    tableName: 'orders',
   }
 );
 
