@@ -14,15 +14,19 @@
   "dependencies": {
     "@tailwindcss/vite": "^4.1.11",
     "bcryptjs": "^3.0.2",
+    "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
     "dotenv": "^17.2.1",
     "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
     "tailwindcss": "^4.1.11"
   },
   "devDependencies": {
     "@eslint/js": "^9.32.0",
+    "@types/cookie-parser": "^1",
     "@types/cors": "^2",
     "@types/express": "^5",
+    "@types/jsonwebtoken": "^9",
     "@types/pg": "^8",
     "eslint": "^9.32.0",
     "globals": "^16.3.0",
