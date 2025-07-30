@@ -1,5 +1,5 @@
 import { Sequelize } from 'sequelize';
-import env from "./env";
+import env from './env';
 
 const sequelize = new Sequelize(
   env.DB.NAME as string,
@@ -8,8 +8,8 @@ const sequelize = new Sequelize(
   {
     host: env.DB.HOST as string,
     port: parseInt(env.DB.PORT as string),
-    dialect: "postgres"
+    dialect: 'postgres',
   }
-)
+);
 
 export { sequelize };

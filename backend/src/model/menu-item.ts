@@ -2,7 +2,7 @@ import { sequelize } from '../config/db';
 import { DataTypes } from 'sequelize';
 
 const MenuItem = sequelize.define(
-  "MenuItems",
+  'MenuItems',
   {
     id: {
       type: DataTypes.UUID,
@@ -24,11 +24,11 @@ const MenuItem = sequelize.define(
     category: {
       type: DataTypes.STRING(50),
       allowNull: false,
-    }
+    },
   },
   {
     timestamps: true,
-    tableName: "menuitems"
+    tableName: 'menuitems',
   }
 );
 

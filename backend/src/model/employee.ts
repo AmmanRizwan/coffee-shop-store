@@ -3,7 +3,7 @@ import { DataTypes } from 'sequelize';
 import { EMPLOYEE_ROLES } from '../constants';
 
 const Employee = sequelize.define(
-  "Employees",
+  'Employees',
   {
     id: {
       type: DataTypes.UUID,
@@ -20,21 +20,21 @@ const Employee = sequelize.define(
     },
     role: {
       type: DataTypes.ENUM(...Object.values(EMPLOYEE_ROLES)),
-      allowNull: false
+      allowNull: false,
     },
     hire_date: {
       type: DataTypes.DATE,
-      defaultValue: () => new Date()
+      defaultValue: () => new Date(),
     },
     salary: {
       type: DataTypes.DECIMAL(10, 2),
       allowNull: false,
-      defaultValue: 15000.00
-    }
+      defaultValue: 15000.0,
+    },
   },
   {
     timestamps: true,
-    tableName: "employees"
+    tableName: 'employees',
   }
 );
 

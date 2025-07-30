@@ -1,29 +1,31 @@
-import express, { Request, Response } from "express";
-import cors from "cors";
-import env from "./config/env";
+import express, { Request, Response } from 'express';
+import cors from 'cors';
+import env from './config/env';
 import { sequelize } from './config/db';
-import cookieParser from "cookie-parser";
-import { errorHandler } from "./middleware/error";
+import cookieParser from 'cookie-parser';
+import { errorHandler } from './middleware/error';
 
 const port = env.PORT;
 
 const app = express();
 
 app.use(cookieParser());
-app.use(cors({
-  origin: env.ALLOWED_ORIGINS?.split(","),
-  allowedHeaders: ["Authorization", "Content-Type"],
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTION"]
-}))
+app.use(
+  cors({
+    origin: env.ALLOWED_ORIGINS?.split(','),
+    allowedHeaders: ['Authorization', 'Content-Type'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTION'],
+  })
+);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use(errorHandler);
 
-app.get("/health", (req: Request, res: Response) => {
-  res.json({message: "Server is ready to server"});
-})
+app.get('/health', (req: Request, res: Response) => {
+  res.json({ message: 'Server is ready to server' });
+});
 
 sequelize
   .sync({ alter: env.ENV === 'development' })
