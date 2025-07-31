@@ -4,7 +4,7 @@ import { throwCustomError } from '../utils/error';
 import { verifyToken } from '../utils/jwt';
 
 const authMiddleware = (
-  req: Request & { user?: { id: string } },
+  req: Request & { customer?: { id: string } },
   res: Response,
   next: NextFunction
 ) => {
@@ -27,7 +27,7 @@ const authMiddleware = (
       return throwCustomError(401, 'Invalid authentication token');
     }
 
-    req.user = decoded as { id: string };
+    req.customer = decoded as { id: string };
     next();
   } catch (error: unknown) {
     res.status(401).json({
