@@ -1,10 +1,33 @@
-import { Coffee } from "lucide-react"
+import { Bell, Coffee, Search } from "lucide-react"
+import profile from "@/assets/profile.png";
 
 export const WebNavBar = () => {
     return (
-        <div className="flex justify-between items-center p-3 bg-blue-300">
-            <div className="border p-2 rounded-full border-black"><Coffee /></div>
-            <div></div>
+        <div className="flex justify-between items-center p-3 px-5 bg-white border-b border-b-2">
+            <div className="border p-2 rounded-full border-black">
+                <Coffee className="cursor-pointer" size={18} />
+            </div>
+            <div className="relative flex">
+                <input className="border border-2 flex rounded-lg h-[35px] pl-5 ring:none pr-20" placeholder="Search" />
+                <div className="absolute top-0 right-0 rounded-lg bg-gray-300 px-5 py-1 cursor-pointer ">
+                        <Search size={25} className="translate rotate-90  " />
+                </div>
+            </div>
+            <div className="flex items-center gap-5">
+                <div>
+                    Wishlist
+                </div>
+                <div>
+                    Orders
+                </div>
+                <div className="relative">
+                    <Bell size={25} />
+                    <div className="absolute top-0 right-1 w-2 h-2 bg-red-600 rounded-full"></div>
+                </div>
+                <div>
+                    <img src={profile} className="w-8 cursor-pointer" />
+                </div>
+            </div>
         </div>
     )
 }
