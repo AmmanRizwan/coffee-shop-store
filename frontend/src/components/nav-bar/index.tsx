@@ -3,17 +3,17 @@ import profile from "@/assets/profile.png";
 
 export const WebNavBar = () => {
     return (
-        <div className="flex justify-between items-center p-3 px-5 bg-white border-b border-b-2">
+        <div className="flex gap-10 justify-between items-center p-3 px-5 bg-white border-b border-b-2">
             <div className="border p-2 rounded-full border-black">
                 <Coffee className="cursor-pointer" size={18} />
             </div>
-            <div className="relative flex">
-                <input className="border border-2 flex rounded-lg h-[35px] pl-5 ring:none pr-20" placeholder="Search" />
-                <div className="absolute top-0 right-0 rounded-lg bg-gray-300 px-5 py-1 cursor-pointer ">
-                        <Search size={25} className="translate rotate-90  " />
+            <div className="flex justify-center items-center gap-5">
+                <div className="relative">
+                    <input className="border border-2 rounded-lg h-[35px] pl-5 ring:none pr-20" placeholder="Search" />
+                    <div className="absolute top-[1px] right-0 rounded-lg bg-gray-300 px-5 py-1 cursor-pointer ">
+                            <Search size={25} className="translate rotate-90  " />
+                    </div>
                 </div>
-            </div>
-            <div className="flex items-center gap-5">
                 <div>
                     Wishlist
                 </div>
