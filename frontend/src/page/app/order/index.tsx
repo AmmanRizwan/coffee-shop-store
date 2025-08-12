@@ -1,4 +1,5 @@
 import InvoiceSummary from "@/components/invoice-summary";
+import OrderItem from "@/components/order-item";
 import TrackOrder from "@/components/track-order";
 
 const Order = () => {
@@ -14,6 +15,7 @@ const Order = () => {
                     <span className="text-lg font-bold leading-none">#907489347</span>
                 </div>
                 <TrackOrder />
+                <OrderItem />
                 <InvoiceSummary />
             </div>
             </div>
