@@ -1,9 +1,9 @@
+import { WebNavBar } from "./components/nav-bar";
+
 function App() {
   return (
     <>
-      <div className='text-3xl font-semibold font-sans text-muted-foreground'>
-        Hello, World!
-      </div>
+    <WebNavBar />
     </>
   );
 }
