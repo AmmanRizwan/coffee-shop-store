@@ -13,8 +13,11 @@ const TrackOrder = () => {
                         <TruckIcon />
                         <p>Coffee Store</p> 
                     </div>
-                    <div>
-                        •----------------•
+                    <div className="flex items-center">
+                        <span className="h-2 w-2 bg-gray-400 rounded-full"></span>
+                        <span className="h-1 w-20 bg-gray-400 rounded-full"></span>
+                        <span className="h-1 w-20 bg-gray-400 rounded-full"></span>
+                        <span className="h-2 w-2 bg-gray-400 rounded-full"></span>
                     </div>
                     <div className="flex gap-1">
                        <MapPin /> <p>Your Location</p> 
