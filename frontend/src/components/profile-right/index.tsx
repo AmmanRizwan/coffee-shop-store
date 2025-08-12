@@ -1,5 +1,5 @@
 import { CoinsIcon, InfoIcon } from "lucide-react";
-import { Button } from "../ui/button";
+import EditAddress from "../edit-address";
 
 const ProfileRight = () => {
     return (
@@ -12,14 +12,14 @@ const ProfileRight = () => {
                     <div className="text-xs text-gray-400">United States</div>
                 </div>
                 <div className="py-3">
-                    <Button className="w-full">Change Address</Button>
+                    <EditAddress />
                 </div>
             </div>
-            <div className="rounded-xl border border-2 p-3 px-6 pb-10 shadow-xl bg-blue-600">
+            <div className="rounded-xl border border-2 p-3 px-6 pb-10 shadow-xl">
                 <div className="text-sm font-bold">Your Bills</div>
                 <div className="flex gap-5 flex-col justify-center items-center py-5">
                     <div>
-                        <InfoIcon size={40} />
+                        <InfoIcon size={40} className="text-red-500" />
                     </div>
                     <div className="text-lg font-bold">
                         No Bills Right Now

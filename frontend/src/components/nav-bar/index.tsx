@@ -3,16 +3,18 @@ import profile from "@/assets/profile.png";
 import { Button } from "../ui/button";
 import { DropdownMenu, DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu";
 import { DropdownMenuContent, DropdownMenuLabel, DropdownMenuSeparator } from "../ui/dropdown-menu";
+import CoffeeShopImage from "@/assets/coffee_shop.png";
 
 export const WebNavBar = () => {
     return (
         <div className="flex gap-10 justify-between items-center p-3 px-5 bg-white border-b border-b-2">
-            <div className="border p-2 rounded-full border-black">
-                <Coffee className="cursor-pointer" size={18} />
+            <div className="w-25">
+                <img alt="Coffee Shop" src={CoffeeShopImage} className="w-25" />
+                {/* <Coffee className="cursor-pointer" size={18} /> */}
             </div>
             <div className="flex justify-center items-center gap-5">
                 <div className="relative  hidden sm:flex">
-                    <input className="border border-2 rounded-full w-[230px] h-[35px] pl-10 focus:outline-none pr-10 placeholder:text-gray-400" placeholder="Search.." />
+                    <input className="border border-2 rounded-full w-[160px] md:w-[230px] h-[35px] pl-10 focus:outline-none pr-10 placeholder:text-gray-400" placeholder="Search.." />
                     <div className="absolute top-[6px] left-3 ">
                             <Search size={22} className="translate rotate-90 text-gray-300" />
                     </div>
@@ -21,12 +23,14 @@ export const WebNavBar = () => {
                     <Button variant={"ghost"}>Wishlist</Button>
                 </div>
                 <div className="hidden sm:flex">
-                    <Button variant={"outline"}>Orders</Button>
+                    <a href="/orders">
+                        <Button variant={"outline"}>Orders</Button>
+                    </a>
                 </div>
 
                 <DropdownMenu>
                     <DropdownMenuTrigger className="focus:outline-none">
-                        <div className="relative">
+                        <div className="relative cursor-pointer">
                             <Bell size={25} />
                             <div className="absolute top-0 right-1 w-2 h-2 bg-red-600 rounded-full"></div>
                         </div>
@@ -48,7 +52,7 @@ export const WebNavBar = () => {
                                     loading="lazy"
                                 />
                                 <span className="text-green-600">+50 Loyalty Points</span>
-                                <span><X /></span>
+                                <span className="cursor-pointer hover:bg-gray-300 hover:rounded-full p-1"><X size={15} /></span>
                             </div>
                         </DropdownMenuLabel>
                     </DropdownMenuContent>
@@ -88,7 +92,7 @@ const navbar_menus = [
     },
     {
         logo: <Package size={30} />,
-        link: "/",
+        link: "/orders",
     },
     {
         logo: <User2 size={30} />,
@@ -98,7 +102,7 @@ const navbar_menus = [
 
 export const MovNavBar = () => {
     return (
-        <div className="flex gap-5 justify-between p-4 px-10 items-center sm:hidden border-t-2 bg-blue-200 fixed w-full bottom-0">
+        <div className="flex gap-5 justify-between p-4 px-10 items-center sm:hidden border-t-2 bg-white fixed w-full bottom-0">
             {
                 navbar_menus.map((menu, index) => {
                     return (

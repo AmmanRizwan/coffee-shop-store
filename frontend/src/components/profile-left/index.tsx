@@ -4,7 +4,7 @@ import EditProfile from "../edit-profile";
 
 const ProfileLeft = () => {
     return (
-        <div className="border-2 mx-10 sm:mx-0 sm:w-[400px] rounded-xl shadow-xl flex flex-col">
+        <div className="border border-2 mx-10 sm:mx-0 sm:w-[400px] rounded-lg shadow-xl flex flex-col">
             <div className="border-b-1">
                 <img alt="Default Profile" src={defaultProfile} />
             </div>
@@ -23,13 +23,12 @@ const ProfileLeft = () => {
                     </div>
                 </div>
                 
-                <div className="flex justify-between my-2 border-b-1 outline-b-2 outline-offset-4 pb-2">
+                <div className="flex justify-between my-2 border-b-1 outline-b-2 outline-offset-4 pb-2 text-sm">
                     <div>Amman Rizwan</div>
 
                     <div>+91 1234567890</div>
                 </div>
-
-                    <div className="flex justify-between pt-6 border-b-1 outline-b-2 outline-offset-4 pb-2">
+                <div className="flex justify-between pt-6 border-b-1 outline-b-2 outline-offset-4 pb-2 text-sm">
                     <div>Ammanrizwan00007@gmail.com</div>
                 </div>
 
@@ -42,7 +41,7 @@ const ProfileLeft = () => {
                     </div>
                 </div>
             </div>
-            <div className="p-4">
+            <div className="p-4 px-7">
                 <EditProfile />
             </div>
         </div>
