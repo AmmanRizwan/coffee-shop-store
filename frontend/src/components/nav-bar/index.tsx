@@ -1,4 +1,4 @@
-import { Bell, Coffee, Home, LogOut, Package, Search, User, User2 } from "lucide-react"
+import { Bell, Coffee, Home, LogOut, Package, Search, User, User2, X } from "lucide-react"
 import profile from "@/assets/profile.png";
 import { Button } from "../ui/button";
 import { DropdownMenu, DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu";
@@ -6,7 +6,7 @@ import { DropdownMenuContent, DropdownMenuLabel, DropdownMenuSeparator } from ".
 
 export const WebNavBar = () => {
     return (
-        <div className="flex gap-10 justify-between items-center p-3 px-5 bg-red-200 border-b border-b-2">
+        <div className="flex gap-10 justify-between items-center p-3 px-5 bg-white border-b border-b-2">
             <div className="border p-2 rounded-full border-black">
                 <Coffee className="cursor-pointer" size={18} />
             </div>
@@ -31,15 +31,25 @@ export const WebNavBar = () => {
                             <div className="absolute top-0 right-1 w-2 h-2 bg-red-600 rounded-full"></div>
                         </div>
                     </DropdownMenuTrigger>
-                    <DropdownMenuContent className="mr-4">
+                    <DropdownMenuContent className="mr-10 sm:mr-25">
                         <DropdownMenuLabel>
-                            <a  className="flex gap-2 items-center select-none cursor-pointer" href="/profile">
-                                My Account
-                            </a>
+                            <div className="text-sm font-bold select-none">
+                                Notification
+                            </div>
                         </DropdownMenuLabel>
                         <DropdownMenuSeparator />
-                        <DropdownMenuLabel className="text-red-500 flex gap-2 items-center select-none cursor-pointer">
-                            Logout
+                        <DropdownMenuLabel>
+                            <div className="flex items-center gap-2">
+                                <img
+                                    src="https://www.svgrepo.com/show/15477/coin.svg"
+                                    alt="Coin"
+                                    className="w-5 h-5"
+                                    style={{ minWidth: 20, minHeight: 20 }}
+                                    loading="lazy"
+                                />
+                                <span className="text-green-600">+50 Loyalty Points</span>
+                                <span><X /></span>
+                            </div>
                         </DropdownMenuLabel>
                     </DropdownMenuContent>
                 </DropdownMenu>
