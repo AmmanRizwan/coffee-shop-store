@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ProfilePage from "./page/profile";
-import Order from "./page/order";
-import NotFound from "./page/not-found";
+import ProfilePage from "./page/app/profile";
+import Order from "./page/app/order";
+import NotFound from "./page/app/not-found";
 import { MovNavBar, WebNavBar } from "./components/nav-bar";
 
 function App() {
