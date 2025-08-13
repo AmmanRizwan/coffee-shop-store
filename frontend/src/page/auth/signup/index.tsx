@@ -1,17 +1,41 @@
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import LoginSignBanner from "@/assets/login_logo.png"
-import CoffeeLogo from "@/assets/coffee_shop.png"
 import HighLightTemp from "@/assets/highlight_temp.png";
+import CoffeeLogo from "@/assets/coffee_shop.png"
+import { useState } from "react"
 
-export default function SignUp({
+const SignUp = ({
   className,
   ...props
-}: React.ComponentProps<"div">) {
-  return (
+}: React.ComponentProps<"div">) => {
+    const [step, setStep] = useState<'base' | 'otp'>('base');
+    // const [formData, setFormData] = useState({
+    //     firstName: '',
+    //     lastName: '',
+    //     email: '',
+    //     password: '',
+    // });
+
+    // const handleSubmit = (e: React.FormEvent) => {
+    //     e.preventDefault();
+    //     if (step === 'base') {
+    //         // Validate and proceed to OTP
+    //         setStep('otp');
+    //     } else {
+    //         // Handle OTP verification
+    //         console.log('OTP verification submitted');
+    //     }
+    // };
+
+    return (
     <div className="relative bg-muted flex min-h-svh flex-col items-center justify-center p-6 md:p-10 overflow-hidden">
       {/* Multiple decorative watermarks */}
       <div className="absolute inset-0 w-full h-full overflow-hidden">
@@ -35,64 +59,99 @@ export default function SignUp({
         />
       </div>
       <div className="absolute inset-0 bg-gradient-to-br from-transparent via-background/50 to-background/20" />
-    <div className="w-full max-w-sm md:max-w-3xl relative z-10">
-    <div className={cn("flex flex-col gap-6", className)} {...props}>
-      <Card className="overflow-hidden p-0">
-        <CardContent className="grid p-0 md:grid-cols-2">
-          <form className="p-6 md:p-8">
-            <div className="flex flex-col gap-6">
-              <div className="flex flex-col items-center text-center">
-                <div>
-                    <img className="w-45" src={CoffeeLogo} />
-                </div>
-              </div>
-              <div className="grid gap-3">
-                <Label htmlFor="email">Email</Label>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder="name@example.com"
-                  required
-                />
-              </div>
-              <div className="grid gap-3">
-                <div className="flex items-center">
-                  <Label htmlFor="password">Password</Label>
-                  <a
-                    href="#"
-                    className="ml-auto text-sm underline-offset-2 hover:underline"
-                  >
-                    Forgot your password?
-                  </a>
-                </div>
-                <Input id="password" placeholder="•••••••••" type="password" required />
-              </div>
-              <Button type="submit" className="w-full">
-                Login
-              </Button>
-              <div className="text-center text-sm">
-                Don&apos;t have an account?{" "}
-                <a href="#" className="underline underline-offset-4">
-                  Sign up
-                </a>
-              </div>
+    <div className="w-full max-w-sm relative z-10">
+            <div className={cn("flex flex-col gap-6", className)} {...props}>
+                <Card>
+                    <CardHeader>
+                        <div className="flex flex-col items-center text-center">
+                            <div>
+                                <img className="w-45" src={CoffeeLogo} alt="Coffee Logo" />
+                            </div>
+                        </div>
+                        <CardTitle className="text-center my-2 text-lg">{step === 'base' ? 'Create your account' : 'Verify OTP'}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <form >{/*  onSubmit={handleSubmit} */}
+                            {step === 'base' ? (
+                                <div className="flex flex-col gap-6">
+                                    {/* Name row */}
+                                    <div className="grid grid-cols-2 gap-4">
+                                        <div className="grid gap-2">
+                                            <Label htmlFor="firstName">First Name</Label>
+                                            <Input
+                                                id="firstName"
+                                                placeholder="Last Name"
+                                                required
+                                            />
+                                        </div>
+                                        <div className="grid gap-2">
+                                            <Label htmlFor="lastName">Last Name</Label>
+                                            <Input
+                                                id="lastName"
+                                                placeholder="Last Name"
+                                                required
+                                            />
+                                        </div>
+                                    </div>
+                                    {/* Email */}
+                                    <div className="grid gap-2">
+                                        <Label htmlFor="email">Email</Label>
+                                        <Input
+                                            id="email"
+                                            type="email"
+                                            placeholder="name@example.com"
+                                            required
+                                        />
+                                    </div>
+                                    {/* Password */}
+                                    <div className="grid gap-2">
+                                        <Label htmlFor="password">Password</Label>
+                                        <Input
+                                            id="password"
+                                            type="password"
+                                            placeholder="•••••••••" 
+                                            required
+                                        />
+                                    </div>
+                                </div>
+                            ) : (
+                                <div className="flex flex-col gap-6">
+                                    <div className="text-center text-sm text-muted-foreground">
+                                        We've sent a verification code to<br/>
+                                        <span className="font-medium text-foreground">{"email"}</span>
+                                    </div>
+                                    <div className="grid gap-2">
+                                        <Label htmlFor="otp">Enter Verification Code</Label>
+                                        <Input
+                                            id="otp"
+                                            placeholder="Enter OTP"
+                                            required
+                                        />
+                                    </div>
+                                </div>
+                            )}
+                            <div className="mt-6 flex flex-col gap-3">
+                                <Button type="submit" className="w-full">
+                                    {step === 'base' ? 'Continue' : 'Verify & Create Account'}
+                                </Button>
+                                {step === 'otp' && (
+                                    <Button 
+                                        type="button" 
+                                        variant="ghost" 
+                                        className="text-sm"
+                                        onClick={() => setStep('base')}
+                                    >
+                                        ← Go back
+                                    </Button>
+                                )}
+                            </div>
+                        </form>
+                    </CardContent>
+                </Card>
             </div>
-          </form>
-          <div className="bg-muted relative hidden md:block">
-            <img
-              src={LoginSignBanner}
-              alt="Image"
-              className="absolute inset-0 h-full w-full dark:brightness-[0.2] dark:grayscale"
-            />
-          </div>
-        </CardContent>
-      </Card>
-      <div className="text-muted-foreground *:[a]:hover:text-primary text-center text-xs text-balance *:[a]:underline *:[a]:underline-offset-4">
-        By clicking continue, you agree to our <a href="#">Terms of Service</a>{" "}
-        and <a href="#">Privacy Policy</a>.
-      </div>
-    </div>
-    </div>
-    </div>
-  )
+        </div>
+        </div>
+    )
 }
+
+export default SignUp;
