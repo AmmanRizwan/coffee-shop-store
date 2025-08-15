@@ -17,6 +17,8 @@ const SignUp = ({
   ...props
 }: React.ComponentProps<"div">) => {
     const [step, setStep] = useState<'base' | 'otp'>('base');
+    
+    // Use the React Hook Form and Zod for the Form Submition
     // const [formData, setFormData] = useState({
     //     firstName: '',
     //     lastName: '',
