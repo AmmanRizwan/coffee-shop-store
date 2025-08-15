@@ -144,6 +144,12 @@ const SignUp = ({
                                         ← Go back
                                     </Button>
                                 )}
+                           <div className="text-center text-sm">
+                                Already have an account?{" "}
+                                <a href="/login" className="underline underline-offset-4">
+                                Login
+                                </a>
+                            </div>
                             </div>
                         </form>
                     </CardContent>
