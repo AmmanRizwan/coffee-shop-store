@@ -11,7 +11,7 @@ const {
   DATABASE_HOST,
   DATABASE_PORT,
   JWT_SECRET,
-  ALLOWED_ORIGINS,
+  ALLOW_ORIGIN,
 } = process.env;
 
 if (!PORT) {
@@ -46,7 +46,7 @@ if (!JWT_SECRET) {
   throw new Error('JWT_SECRET is not set');
 }
 
-if (!ALLOWED_ORIGINS) {
+if (!ALLOW_ORIGIN) {
   throw new Error('ALLOWED_ORIGINS is not set');
 }
 
@@ -61,7 +61,7 @@ const config = {
     PORT: DATABASE_PORT,
   },
   JWT: JWT_SECRET,
-  ALLOWED_ORIGINS: ALLOWED_ORIGINS,
+  ALLOWED_ORIGINS: ALLOW_ORIGIN,
 };
 
 export default config;

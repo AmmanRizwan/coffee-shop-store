@@ -4,12 +4,15 @@ import env from './config/env';
 import { sequelize } from './config/db';
 import cookieParser from 'cookie-parser';
 import { errorHandler } from './middleware/error';
+import logger from './utils/logger';
+import pinoLogger from './middleware/logger';
 
 const port = env.PORT;
 
 const app = express();
 
 app.use(cookieParser());
+app.use(pinoLogger);
 app.use(
   cors({
     origin: env.ALLOWED_ORIGINS?.split(','),
@@ -31,7 +34,7 @@ sequelize
   .sync({ alter: env.ENV === 'development' })
   .then(() => {
     app.listen(port, () => {
-      console.log(`Server is running on port: ${port}`);
+      logger.info(`Server is running on port: ${port}`);
     });
   })
   .catch((e: unknown) => {
